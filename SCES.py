@@ -1,49 +1,72 @@
 ##Definir variaveis
-combustivel=100
-produtos=[]
+
+produtos=[
+    [1,"Volante",3,"Prateleira 01"],
+    [2,"pedal",50,"Prateleira 02"]
+]
 ##Definir funções
-def viajar(): ##Gastar combustivel
+def Alterar(): 
     
-    global combustivel
-    if (combustivel>=30):
-        combustivel= combustivel- 30
-        print("A nave viajou com sucesso 🚀🚀")
+    global produtos
+    alter=input("Qual produto deseja alterar a quantidade? com ID ")
+    if (alter==produtos):
+        alter.append(alter)
+        print("Produto alterado")
+    travarmenu()
+
+def dados():
+    print("-----------------------------------")
+    print(produtos)
+    travarmenu()  
+
+
+def BuscaProd():
+    linhaprocurada =-1
+    ID = int(input("Qual ID do produto que deseja procurar? "))
+    for i in range(len(produtos)):##Varre linha a linha da matriz
+        if(produtos[i][0]==ID): ##Verifica se a posição do nome é igual ao nome procurado
+            linhaprocurada = i
+    print(f"O Produto procurado é {}")
+    
+
+def remProd():##Remover Produtos
+    if (len(produtos)==0):
+        print("Não ha produtos. Adicione")
     else:
-        print("Voce está sem combustivel suficiente. Abasteça!")
+    
+        produtos.pop(produtos)
+        print("Produto removido.")
+        print(produtos)
+    travarmenu()
 
 
-def abastecer():
-    print("-----------------------------------")
-    global combustivel
-    combustivel=100
-    print("Tanque cheio! ⛽")
-
-def stNave():
-    print("----------STATUS DA NAVE-----------")
-    print(f"A nave esta com {combustivel}L de combustivel")
-    print(f"Os produtos são:{produtos}")
-    print("-----------------------------------")
-
-
-def resTrip():##Add tripulantes
-    novoProduto = input("Qual nome do novo produto ? ")
+def resProd():##Add Produtos
+    novoProduto = input("Qual ID e nome do novo , quantidade e localização do produto ? ")
     produtos.append(novoProduto) ## inserimos
     print("Produto inserido com sucesso!")
+    travarmenu()
+
+def travarmenu():
+    #Nosso código vai aqui
+    input("\nPrecione <ENTER> para continuar......")
+
 
 ##Menu 
 
-print("\nBem vindo ao menu interativo da nave. Por favor selecione uma opção:")
+print("\nBem vindo ao menu interativo do estoque. Por favor selecione uma opção:")
 while True : #Roda para sempre
-    print("\n1- Mostrar status da nave| 2- Viajar| 3- Abastecer| 4- Novo produto |5-Sair")
+    print("\n1- Buscar produtos | 2- Alterar| 3- Produtos| 4- Novo produto | 5-Remover produto | 6-Sair")
     opcao=input("Escolha: ")
     if (opcao=="1"):
-        stNave()
+        BuscaProd()
     elif (opcao=="2"):
-        viajar()
+        Alterar()
     elif (opcao=="3"):
-        abastecer()
+        dados()
     elif (opcao=="4"):
-        resTrip()
+        resProd()
     elif (opcao=="5"):
+        remProd()    
+    elif (opcao=="6"):
         print("Viagem encerrada!")
         break
