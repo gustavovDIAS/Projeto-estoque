@@ -2,7 +2,8 @@
 
 produtos=[
     [1,"Volante",3,"Prateleira 01"],
-    [2,"Pedal",50,"Prateleira 02"]
+    [2,"Pedal",50,"Prateleira 02"],
+
 ]
 ##Definir funções
 def Alterar(): 
@@ -27,7 +28,7 @@ def Alterar():
 def dados():
     print(produtos)
     for i in range(len(produtos)):##Varre linha a linha da matriz
-        if(produtos[i][2]<5): ##Verifica se a posição do nome é igual ao nome procurado
+        if(produtos[i][2]<5): ##Verifica se a quantidade do item é menor ou maior que 5
             print(f"\nCuidado , os produtos {produtos[i]} estão quase sem estoque.")
             print("Hora de repor 🚚")
     travarmenu() ## Com ajuda do caio
@@ -67,8 +68,11 @@ def remProd():##Remover Produtos
       
                     
 def resProd():##Add Produtos
-    novoProduto = input("Qual ID e nome do novo , quantidade e localização do produto ? ")
-    produtos.append(novoProduto) ## inserimos
+    novoIDProduto = int(input("Qual ID do novo produto ? "))
+    novoNMProduto = input("Qual nome do novo produto ? ")
+    novoQTProduto = int(input("Qual a Quantidade do novo produto ? "))
+    novoLCProduto = input("Qual a localização do novo produto ? ")
+    produtos.append([novoIDProduto,novoNMProduto,novoQTProduto,novoLCProduto]) ## inserimos
     print("Produto inserido com sucesso!")
     travarmenu()
 
