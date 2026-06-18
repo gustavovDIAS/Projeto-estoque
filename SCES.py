@@ -25,16 +25,12 @@ def Alterar():
 
 
 def dados():
-    for i in range(len(produtos)):##Varre linha a linha da matriz
-        if(produtos[i][0]==ID): ##Verifica se a posição do nome é igual ao nome procurado
-            linhaprocurada = i
-    if (linhaprocurada==-1):
-        print("Produto não eiste.")
-    else:
-        print(f"O Produto procurado é {produtos[linhaprocurada]}")
     print(produtos)
-    travarmenu()  
-
+    for i in range(len(produtos)):##Varre linha a linha da matriz
+        if(produtos[i][2]<5): ##Verifica se a posição do nome é igual ao nome procurado
+            print(f"\nCuidado , os produtos {produtos[i]} estão quase sem estoque.")
+            print("Hora de repor 🚚")
+    travarmenu()
 
 def BuscaProd():
     linhaprocurada =-1
@@ -67,7 +63,9 @@ def remProd():##Remover Produtos
                 print("Produto excluido com sucesso 🗑️")
             else:
                 print("Cancelado !!")
-                
+    travarmenu() 
+    
+          
                     
 def resProd():##Add Produtos
     novoProduto = input("Qual ID e nome do novo , quantidade e localização do produto ? ")
