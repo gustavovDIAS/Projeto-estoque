@@ -2,16 +2,25 @@
 
 produtos=[
     [1,"Volante",3,"Prateleira 01"],
-    [2,"pedal",50,"Prateleira 02"]
+    [2,"Pedal",50,"Prateleira 02"]
 ]
 ##Definir funções
 def Alterar(): 
     
     global produtos
-    alter=input("Qual produto deseja alterar a quantidade? com ID ")
-    if (alter==produtos):
-        alter.append(alter)
-        print("Produto alterado")
+    linhaprocurada =-1
+    alter=input("Qual nome do produto que deseja alterar a quantidade? ")
+    for i in range(len(produtos)):##Varre linha a linha da matriz
+        if(produtos[i][1]==alter):
+            linhaprocurada = i
+    if (linhaprocurada==-1):
+        print("Produto não eiste.")
+    else:
+        print(f"{produtos[linhaprocurada]}")
+        novaQuantidade= int(input(f"Qual a nova quantidade do produto?: "))
+        produtos[linhaprocurada][2] = novaQuantidade
+        print("Nova quantidade atualizada com sucesso!")
+        print(f"{produtos[linhaprocurada]}")
     travarmenu()
 
 def dados():
@@ -30,7 +39,7 @@ def BuscaProd():
         print("Produto não eiste.")
     else:
         print(f"O Produto procurado é {produtos[linhaprocurada]}")
-    
+    travarmenu()
 
 def remProd():##Remover Produtos
     if (len(produtos)==0):
