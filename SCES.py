@@ -26,7 +26,10 @@ def BuscaProd():
     for i in range(len(produtos)):##Varre linha a linha da matriz
         if(produtos[i][0]==ID): ##Verifica se a posição do nome é igual ao nome procurado
             linhaprocurada = i
-    print(f"O Produto procurado é {}")
+    if (linhaprocurada==-1):
+        print("Produto não eiste.")
+    else:
+        print(f"O Produto procurado é {produtos[linhaprocurada]}")
     
 
 def remProd():##Remover Produtos
