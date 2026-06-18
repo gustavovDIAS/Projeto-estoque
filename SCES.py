@@ -30,7 +30,7 @@ def dados():
         if(produtos[i][2]<5): ##Verifica se a posição do nome é igual ao nome procurado
             print(f"\nCuidado , os produtos {produtos[i]} estão quase sem estoque.")
             print("Hora de repor 🚚")
-    travarmenu()
+    travarmenu() ## Com ajuda do caio
 
 def BuscaProd():
     linhaprocurada =-1
@@ -63,7 +63,7 @@ def remProd():##Remover Produtos
                 print("Produto excluido com sucesso 🗑️")
             else:
                 print("Cancelado !!")
-    travarmenu() 
+    travarmenu() ## Com ajuda do Caio
       
                     
 def resProd():##Add Produtos
