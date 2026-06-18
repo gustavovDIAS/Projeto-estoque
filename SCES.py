@@ -64,8 +64,7 @@ def remProd():##Remover Produtos
             else:
                 print("Cancelado !!")
     travarmenu() 
-    
-          
+      
                     
 def resProd():##Add Produtos
     novoProduto = input("Qual ID e nome do novo , quantidade e localização do produto ? ")
@@ -97,5 +96,5 @@ while True : #Roda para sempre
     elif (opcao=="5"):
         remProd()    
     elif (opcao=="6"):
-        print("Viagem encerrada!")
+        print("Sistema finalizado !")
         break
